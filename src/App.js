@@ -1,24 +1,31 @@
-import logo from './logo.svg';
+import React , {useContext , useState} from 'react';
 import './App.css';
 
+
+import { HashRouter } from 'react-router-dom';
+import { Route , Routes } from 'react-router-dom';
+
+import { Link } from 'react-scroll';
+import Landing from './pages/Landing';
+
+
 function App() {
+  
+  
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <HashRouter>
+    
+    <Routes>
+      
+      <Route path="/" element={<Landing/> } />
+     
+      
+ 
+      </Routes>
+     
+   
+     </HashRouter>
   );
 }
 
