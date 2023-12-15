@@ -25,7 +25,7 @@ const createWorkSpace = async (req, res) => {
       joinId: generateJoinId(),
     });
     res.status(200).json(workspace);
-  } catch (e) {
+  } catch (err) {
     res.status(400).json(err);
   }
 };

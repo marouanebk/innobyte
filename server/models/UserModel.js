@@ -2,28 +2,22 @@ const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
 
 
-const roles=["admin","pageAdmin","financier","logistics"]
-const commandTypesEnum=["Détail vierge","Détail personnalisé","Gros vierge","Gros personnalisé","Vierge détail","Personnalisé détail","Gros personnalisé","Gros détail"]
 
 const userSchema = mongoose.Schema(
   {
     fullName: {
       type: String,
-      required: [true, 'Please , fill in ur full name '],
+      required: [true, 'Veuillez ajouter un nom'],
     },
     username: {
       type: String,
-      required: [true, 'Please , fill in ur username '],
+      required: [true, 'Veuillez ajouter un nom d\'utilisateur'],
     },
     password: {
       type: String,
-      required: [true, 'Please , fill in ur password '],
+      required: [true, 'Veuillez ajouter un mot de passe'],
     },
-    role: {
-      type: String,
-      enum: roles,
-      required: [true, 'Please , fill in ur password'],
-    },
+
     
 
       fcm_token:{type:String,
@@ -34,23 +28,18 @@ const userSchema = mongoose.Schema(
   }
 )
 // static signup method
-userSchema.statics.signup = async function(fullName,username, password,role,) {
+userSchema.statics.signup = async function(fullName,username, password,) {
 
   const exist = await this.findOne({ username: username });
 
   if (exist) {
-    throw Error('username already used.');
+    throw Error('Nom d\'utilisateur déjà utilisé, veuillez choisir un autre');
   }
-
-  console.log("before getting salt ");
 
   const salt = await bcrypt.genSalt(10);
   const hash = await bcrypt.hash(password, salt);
-  console.log(hash)
 
-
-  const user = await this.create({ fullName,username, password: hash,role, });
-  console.log("user salt ");
+  const user = await this.create({ fullName,username, password: hash, });
 
   return user;
 }
@@ -60,7 +49,7 @@ userSchema.statics.signup = async function(fullName,username, password,role,) {
 // static login method
 userSchema.statics.login = async function(username,password,fcm_token) {
     if (!username || !password) {
-        throw Error('Please fill in username and password.');
+        throw Error('Tous les champs doivent être remplis');
     }
     const user = await this.findOneAndUpdate(
       { username },
@@ -68,11 +57,11 @@ userSchema.statics.login = async function(username,password,fcm_token) {
       { new: true }
     )
     if (!user) {
-        throw Error('username incorrect');
+        throw Error('Nom d\'utilisateur incorrect');
     }
     const match = await bcrypt.compare(password, user.password)
     if (!match) {
-        throw Error('password incorrect');
+        throw Error('Mot de passe incorrect');
     }
   
     return user
