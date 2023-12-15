@@ -9,20 +9,20 @@ const userSchema = mongoose.Schema(
   {
     fullName: {
       type: String,
-      required: [true, 'Veuillez ajouter un nom'],
+      required: [true, 'Please , fill in ur full name '],
     },
     username: {
       type: String,
-      required: [true, 'Veuillez ajouter un nom d\'utilisateur'],
+      required: [true, 'Please , fill in ur username '],
     },
     password: {
       type: String,
-      required: [true, 'Veuillez ajouter un mot de passe'],
+      required: [true, 'Please , fill in ur password '],
     },
     role: {
       type: String,
       enum: roles,
-      required: [true, 'Veuillez ajouter un rôle'],
+      required: [true, 'Please , fill in ur password'],
     },
     
 
@@ -39,13 +39,18 @@ userSchema.statics.signup = async function(fullName,username, password,role,) {
   const exist = await this.findOne({ username: username });
 
   if (exist) {
-    throw Error('Nom d\'utilisateur déjà utilisé, veuillez choisir un autre');
+    throw Error('username already used.');
   }
+
+  console.log("before getting salt ");
 
   const salt = await bcrypt.genSalt(10);
   const hash = await bcrypt.hash(password, salt);
+  console.log(hash)
+
 
   const user = await this.create({ fullName,username, password: hash,role, });
+  console.log("user salt ");
 
   return user;
 }
@@ -55,7 +60,7 @@ userSchema.statics.signup = async function(fullName,username, password,role,) {
 // static login method
 userSchema.statics.login = async function(username,password,fcm_token) {
     if (!username || !password) {
-        throw Error('Tous les champs doivent être remplis');
+        throw Error('Please fill in username and password.');
     }
     const user = await this.findOneAndUpdate(
       { username },
@@ -63,11 +68,11 @@ userSchema.statics.login = async function(username,password,fcm_token) {
       { new: true }
     )
     if (!user) {
-        throw Error('Nom d\'utilisateur incorrect');
+        throw Error('username incorrect');
     }
     const match = await bcrypt.compare(password, user.password)
     if (!match) {
-        throw Error('Mot de passe incorrect');
+        throw Error('password incorrect');
     }
   
     return user

@@ -16,7 +16,7 @@ const port = process.env.PORT || 5000;
 // exemple :const visitRoutes=require('./routes/visitsRoutes')
 const authRoutes=require('./routes/authRoutes')
 const accountRoutes=require('./routes/accountRoutes')
-
+const workSpaceRoutes = require('./routes/workSpaceRoutes')
 
 
 
@@ -33,6 +33,7 @@ app.use((req, res,next)=>{
 
 app.use('/api/auth',authRoutes)
 app.use('/api/account',accountRoutes)
+// app.use('/api/workspace', workSpaceRoutes)
 
 
 //connect to db
