@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { FaSearch } from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContext } from "../Context/AuthContext";
 
 export default function Sidebar() {
   // const [laptopsData, setLaptopsData] = useState([]);
@@ -90,50 +92,79 @@ export default function Sidebar() {
   //     </div>
   //   ));
   // }
+  // const navigate = useNavigate();
+  const { dispatch } = useContext(AuthContext);
+  dispatch({ type: "LOGOUT", });
+
+
+  // State variables to manage email and password inputs
+
+  // Function to handle login submission
+  const handleLogout = async () => {
+    console.log("hello world");
+  };
 
   return (
     <div className="flex justify-start items-start">
-     <div className="h-screen w-60 px-8  flex flex-col justify-start items-start gap-10 py-10 bg-[#ffffff]">
-     <div className="flex  justify-start items-center gap-5">
-      <img className="h-6" alt="imagelogo" src={require('../img/Logo.png')} />
-      <span className="text-center text-slate-600 text-xl font-bold">
-        CollabHUB
-      </span>
-     </div>
-     <div className="h-20"></div>
-     <div className="flex  justify-center items-start gap-5">
-      <img className="h-6" alt="imagelogo" src={require('../img/Icon (1).png')} />
-      <span className="text-center text-slate-600 text-lg ">
-        Messagerie
-      </span>
-     </div>
-     <div className=" flex justify-start items-start gap-5">
-     <img className="h-6 " alt="imagelogo" src={require('../img/Icon (2).png')} />
-      <span className="text-center text-slate-600 text-lg ">
-        Projets
-      </span>
-     </div>
-     <div className="flex justify-start items-center gap-5">
-     <img className="h-6" alt="imagelogo" src={require('../img/Icon (3).png')} />
-      <span className="text-center text-slate-600 text-lg ">
-        Calendrier
-      </span>
-     </div>
-     <div className="flex-1"></div>
-     <div className="flex justify-start items-center gap-6">
-     
-      <span className="text-center text-slate-600 text-lg ">
-        Se déconnecter
-      </span>
-      <img className="h-6" alt="imagelogo" src={require('../img/Vector (5).png')} />
-     </div>
-     </div>
-     <div></div>
+      <div className="h-screen w-60 px-8  flex flex-col justify-start items-start gap-10 py-10 bg-[#ffffff]">
+        <div className="flex  justify-start items-center gap-5">
+          <img
+            className="h-6"
+            alt="imagelogo"
+            src={require("../img/Logo.png")}
+          />
+          <span className="text-center text-slate-600 text-xl font-bold">
+            CollabHUB
+          </span>
+        </div>
+        <div className="h-20"></div>
+        <div className="flex  justify-center items-start gap-5">
+          <img
+            className="h-6"
+            alt="imagelogo"
+            src={require("../img/Icon (1).png")}
+          />
+          <span className="text-center text-slate-600 text-lg ">
+            Messagerie
+          </span>
+        </div>
+        <div className=" flex justify-start items-start gap-5">
+          <img
+            className="h-6 "
+            alt="imagelogo"
+            src={require("../img/Icon (2).png")}
+          />
+          <span className="text-center text-slate-600 text-lg ">Projets</span>
+        </div>
+        <div className="flex justify-start items-center gap-5">
+          <img
+            className="h-6"
+            alt="imagelogo"
+            src={require("../img/Icon (3).png")}
+          />
+          <span className="text-center text-slate-600 text-lg ">
+            Calendrier
+          </span>
+        </div>
+        <div className="flex-1"></div>
+        <div className="flex justify-start items-center gap-6">
+          <span
+            onClick={handleLogout}
+            className="text-center text-slate-600 text-lg "
+          >
+            Se déconnecter
+          </span>
+          <img
+            className="h-6"
+            alt="imagelogo"
+            src={require("../img/Vector (5).png")}
+          />
+        </div>
+      </div>
+      <div></div>
     </div>
   );
 }
-
-
 
 {
   // <>
@@ -148,7 +179,6 @@ export default function Sidebar() {
   //     >
   //       {/* SVG for sidebar */}
   //     </button>
-
   //     <aside
   //       id="sidebar-multi-level-sidebar"
   //       className="relative top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
@@ -158,7 +188,6 @@ export default function Sidebar() {
   //       {/* form and other elements */}
   //       <div class="h-full px-3 py-4">
   //         <h1 className="text-xl font-bold">Filters :</h1>
-
   //         <form>
   //           <label
   //             for="default-search"
