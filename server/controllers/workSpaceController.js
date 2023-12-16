@@ -30,4 +30,21 @@ const createWorkSpace = async (req, res) => {
   }
 };
 
+const getWorkspaces = async (req, res) => {
+  try {
+    const userid = req.user.id;
+    const name = req.body.name;
+    const workspace = await WorkSpaceModel.create({
+      name: name,
+      manager: userid,
+      joinId: generateJoinId(),
+    });
+    res.status(200).json(workspace);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+};
+
+
+
 module.exports = { createWorkSpace };

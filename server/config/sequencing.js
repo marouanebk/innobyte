@@ -34,7 +34,7 @@ const insertCounter = (seqName) => {
         .then(data => {
             resolve(data.seq);
         })
-        .catch(err => reject(error));
+        .catch(err => reject(err));
     });
 }
 module.exports = {
