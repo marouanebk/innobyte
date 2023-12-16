@@ -29,9 +29,9 @@ function Messagerie() {
           </div>
           <div className="flex justify-center items-center gap-5">
             <div className="bg-[#ffffff] h-[calc(100vh-68px)] w-full ">
-              <Chat name={"Haithem SAIDA"} clicked={true} />
-              <Chat name={"Haithem SAIDA"} clicked={false} />
-              <Chat name={"Haithem SAIDA"} clicked={false} />
+              <Chat context={"code1"} name={"Haithem SAIDA"} clicked={true} />
+              <Chat context={"code2"} name={"Haithem SAIDA"} clicked={false} />
+              <Chat context={"code3"} name={"Haithem SAIDA"} clicked={false} />
             </div>
             <div className="bg-[#ffffff] h-[calc(100vh-68px)] w-full ">
               <Chat name={"Haithem SAIDA"} clicked={false} />

@@ -26,57 +26,13 @@ function Card(props) {
             Login feature from design to prod enhanced with some new options
           </span>
           <button
-            onClick={() => setShowModal(true)}
+            // onClick={() => setShowModal(true)}
             className="h-10 px-5 py-2 text-white text-sm bg-[#0F766E] rounded-md shadow-sm"
           >
-            View progress
+            <Link to="/experience1/experience22/progres/depand">
+              View progress
+            </Link>
           </button>
-          {showModal ? (
-            <div onClick={() => setShowModal(false)}>
-              <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-                <div className="relative w-auto my-6 mx-auto max-w-3xl">
-                  {/*content*/}
-                  <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-                    {/*header*/}
-                    <div className="flex items-start justify-between p-6  rounded-t">
-                      <h2 className="text-2xl text-[#0F172A] font-semibold">
-                        Create a new feature
-                      </h2>
-                    </div>
-                    {/*body*/}
-                    <div className="relative px-6 flex-auto">
-                      <span className="my-4 text-blueGray-500 text-lg leading-relaxed">
-                        Do you want to create an automated or an organic feature
-                        ?
-                      </span>
-                    </div>
-                    {/*footer*/}
-                    <div className="flex items-center justify-end p-6  rounded-b">
-                      <button
-                        className="bg-[#ffffff] border-2 border-[#0F766E] text-[#0F766E] active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                        type="button"
-                        onClick={() => setShowModal(false)}
-                      >
-                        <Link to="/experience1/experience22/graphauto">
-                          Organic feature
-                        </Link>
-                      </button>
-                      <button
-                        className="bg-[#0F766E] text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                        type="button"
-                        onClick={() => setShowModal(false)}
-                      >
-                        <Link to="/experience1/experience22/graphauto">
-                          Automated feature
-                        </Link>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="opacity-80 fixed inset-0 z-40 bg-black"></div>
-            </div>
-          ) : null}
         </div>
       ))}
     </div>
