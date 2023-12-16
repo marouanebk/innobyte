@@ -1,7 +1,8 @@
 const mongoose = require('mongoose')
 const User =require('./UserModel')
+const Project =require('./projectModel')
 
-const Workflow =require('./WorkFlowModel')
+// const Workflow =require('./WorkFlowModel')
 
 
 
@@ -44,19 +45,25 @@ const workspaceSchema = new mongoose.Schema({
     enum: ["free", "paid"],
     default: "free"
   },
-  workflows: [
+  projects: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Workflow"
+      ref: "Project"
     }
   ]
+  // workflows: [
+  //   {
+  //     type: mongoose.Schema.Types.ObjectId,
+  //     ref: "Workflow"
+  //   }
+  // ]
 });
 
 // Define the workspace model
 // export const workspaceSchema = mongoose.model("Workspace", workspaceSchema);
 
-const workspace = mongoose.model('WorkSpace', workspaceSchema)
+const Workspace = mongoose.model('WorkSpace', workspaceSchema)
 
 
 module.exports = {
-    workspace}
+    workspace: Workspace}

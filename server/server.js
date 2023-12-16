@@ -34,6 +34,8 @@ app.use((req, res,next)=>{
 
 app.use('/api/auth',authRoutes)
 app.use('/api/account',accountRoutes)
+app.use('/api/workspace',workSpaceRoutes)
+
 // app.use('/api/workspace', workSpaceRoutes)
 
 
