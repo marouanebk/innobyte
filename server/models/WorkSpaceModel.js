@@ -1,56 +1,53 @@
-const mongoose = require('mongoose')
-const User =require('./UserModel')
-const Project =require('./projectModel')
+const mongoose = require("mongoose");
+const User = require("./UserModel");
+const Project = require("./projectModel");
 
 // const Workflow =require('./WorkFlowModel')
-
-
 
 // Define the workspace schema
 const workspaceSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
-    trim: true
+    trim: true,
   },
   joinId: {
     type: String,
   },
   maxUsers: {
     type: Number,
-    required: true,
-    min: 1
+    default: 6,
   },
   manager: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
-    required: true
+    required: true,
   },
   members: [
     {
       user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
-        required: true
+        required: true,
       },
       role: {
         type: String,
         enum: ["admin", "editor", "viewer"],
-        default: "viewer"
-      }
-    }
+        default: "viewer",
+      },
+    },
   ],
   type: {
     type: String,
     enum: ["free", "paid"],
-    default: "free"
+    default: "free",
   },
   projects: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Project"
-    }
-  ]
+      ref: "Project",
+    },
+  ],
   // workflows: [
   //   {
   //     type: mongoose.Schema.Types.ObjectId,
@@ -62,8 +59,8 @@ const workspaceSchema = new mongoose.Schema({
 // Define the workspace model
 // export const workspaceSchema = mongoose.model("Workspace", workspaceSchema);
 
-const Workspace = mongoose.model('WorkSpace', workspaceSchema)
-
+const Workspace = mongoose.model("WorkSpace", workspaceSchema);
 
 module.exports = {
-    workspace: Workspace}
+  Workspace,
+};
