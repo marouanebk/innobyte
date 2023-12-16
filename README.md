@@ -1,70 +1,31 @@
-# Getting Started with Create React App
+# Getting Started Collab Hub
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Collab Hub is an online platform that allows you to create and join workspaces, chat with your teammates, manage your projects, and schedule your meetings
 
-## Available Scripts
+## Project set up 
 
-In the project directory, you can run:
+to be able to launch this project , you need to 
+first launch 
+### npm install 
+to install all the packages needed for both react and nodejs
+### create an env file 
+you need to create an env file inside server folder and set up the following variables 
+### PORT
+what port u want to listen from usualy 5000 or 3000
+### DB_URI = "mongodb://0.0.0.0:27017/InnoByte"
+the link of mongo db database , u can use both a local and remote database 
+### secret_string
+this variable is for hashing the password for auth so any random string will be enough 
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Key Features 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Workspaces:
+You can create and join multiple workspaces, and customize them with your own name, logo, and color scheme. You can also manage your workspace settings, such as max users, type (free or paid), and join id.
+### Chat: 
+You can chat with your teammates in real-time, and send text, images, files, and emojis. You can also create channels for different topics, and pin important messages for easy access.
+### Projects:
+You can create and manage your projects within your workspace, and add tasks, workflows, and deadlines. You can also assign tasks to your teammates, and track their progress and status. You can also view your project overview, and see the summary, timeline, and statistics of your project.
+### Calendar:
+You can schedule your meetings using the calendar feature, and sync it with your Google Calendar or Outlook. You can also view your upcoming and past meetings, and set reminders and notifications for them.
+And so much more!

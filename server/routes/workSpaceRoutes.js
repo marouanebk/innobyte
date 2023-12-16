@@ -2,7 +2,7 @@ const express=require('express');
 
 //import from controller
 const{
-    createWorkSpace,
+    createWorkSpace,getWorkspaces , getWorkSpaceById
 }=require('../controllers/workSpaceController');
 
 
@@ -15,6 +15,8 @@ router.use(protect)
 
 //create new command
 router.post('/create',createWorkSpace)
+router.get('/get',getWorkspaces)
+router.get('/get_by_id/:id',getWorkspaces)
 // //get all commands
 // router.get('/get',getCommands)
 // //update an command
