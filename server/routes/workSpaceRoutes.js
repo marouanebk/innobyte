@@ -1,35 +1,23 @@
-const express=require('express');
+const express = require("express");
 
 //import from controller
-const{
-    createWorkSpace,getWorkspaces , getWorkSpaceById
-}=require('../controllers/workSpaceController');
+const {
+  createWorkSpace,
+  getWorkspaces,
+  getWorkSpaceById,
+  joinWorkspace,
+} = require("../controllers/workSpaceController");
 
-
-const router = express.Router()
-const { protect } = require('../middleware/authMiddleware')
+const router = express.Router();
+const { protect } = require("../middleware/authMiddleware");
 
 // check if auth
-router.use(protect)
-
+router.use(protect);
 
 //create new command
-router.post('/create',createWorkSpace)
-router.get('/get',getWorkspaces)
-router.get('/get_by_id/:id',getWorkspaces)
-// //get all commands
-// router.get('/get',getCommands)
-// //update an command
-// router.patch("/update/:id",upload.array('photos',25),updateCommand)
-// //update status
-// router.patch("/status/update/:id",updateCommandStatus)
-// // get command status stats
-// router.get("/status/stats",getCommandStats)
-// //get admins stats
-// router.get('/pageadmin/stats',getAdminsStats)
-// // add sous traitaince
-// router.post('/sous-traitance/:id',addSousTraitance)
-// //download data as excel
-// router.get('/excel',downloadData)
+router.post("/create", createWorkSpace);
+router.get("/get", getWorkspaces);
+router.get("/join", joinWorkspace);
+router.get("/get_by_id/:id", getWorkSpaceById);
 
-module.exports=router  
+module.exports = router;

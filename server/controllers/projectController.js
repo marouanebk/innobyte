@@ -33,4 +33,4 @@ const getProject = async (req, res) => {
   }
 };
 
-module.exports = { createProject, getProject, getWorkspace };
+module.exports = { createProject, getProject, };
